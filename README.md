@@ -1,6 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-`npm install` for installing the modules
-`npm start` for starting the server
+
+### `npm install` for installing the modules
+### `npm start` for starting the server
 
 ## Available Scripts
 
