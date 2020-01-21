@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {gql} from 'apollo-boost';
 import '../App.css';
 
 import { useQuery, useMutation } from '@apollo/react-hooks';
 
-import {getAuthorsQuery} from '../queries/queries';
+import {getAuthorsQuery, ADD_BOOK} from '../queries/queries';
 
 function AddBook() {
 
@@ -13,6 +12,7 @@ function AddBook() {
     const [authorId, setAuthorId] = useState("");
 
     const { loading, error, data } = useQuery(getAuthorsQuery);
+    const [addBook, { data2 }] = useMutation(ADD_BOOK);
     // console.log(data);
 
     const displayAuthors = () => {
@@ -27,6 +27,10 @@ function AddBook() {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log(bookGenre, bookName, authorId);
+        addBook({ variables: { name: bookName, genre: bookGenre, authorId: authorId } });
+
+        console.log(data2);
+
     }
 
 
